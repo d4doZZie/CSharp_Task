@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Square Root Calculator";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Square Root Calculator</h1>
+    <p>Calculate and compare the Square Root of two numbers</p>
+</div>
+
+<div class="text-center">
+     <p>Enter your numbers</p>
+    <form asp-controller="Calc" asp-action="SquareRoot" method="POST">
+        <input type="text" name="FirstNumber" placeholder="First Number">
+        <input type="text" name="SecondNumber" placeholder="Second Number"><br><br>
+        <button type="submit">Calculate</button>
+    </form>
+   
+</div>
+
+  @{
+        
+            if(ViewBag.SqrtOne >  ViewBag.SqrtTwo)
+           {
+               <div class="text-center">
+                   <p>The number @ViewBag.First with a Square root of @ViewBag.SqrtOne. has a higher Square root than<br> The number  @ViewBag.Second which has a Square root of  @ViewBag.SqrtTwo <br>
+                      
+                   </p>
+               </div>
+           }
+            
+           else if(ViewBag.SqrtOne ==  ViewBag.SqrtTwo)
+           {
+             <div class="text-center">
+                 <p>Error!!! Both numbers have the Same Square roots<br>Please Enter another Number</p>
+             </div> 
+           }
+
+
+           else if(ViewBag.SqrtTwo > ViewBag.SqrtOne )
+           {
+                 <div class="text-center">
+                     <p>
+                         The number @ViewBag.Second with a Square root of @ViewBag.SqrtTwo, has a highr Square Root than the number @ViewBag.First which has a Square root of  @ViewBag.SqrtOne <br>
+                     
+                     </p>
+                 </div>
+           }
+            else 
+           {
+                 <div class="text-center">
+                   <p>Thanks For Using this Calculator. Please stay safe and Always wash your hands</p>
+               </div>
+             
+           }
+
+         
+
+     }  
